@@ -1,24 +1,24 @@
-const { displayWordSoFar, isGameWon, isGameLost } = require("./gamelogic");
+const { getGuessProgress, isGameWon, isGameLost } = require("./gamelogic");
 
-test("displayWordSoFar should display an underscore followed by a space for each letter to guess", () => {
+test("getGuessProgress should display an underscore followed by a space for each letter to guess", () => {
   // ARRANGE
   const word = "javascript";
   const guesses = [];
 
   // ACT
-  const displayedWord = displayWordSoFar(word, guesses);
+  const displayedWord = getGuessProgress(word, guesses);
 
   // ASSERT
   expect(displayedWord).toBe("_ _ _ _ _ _ _ _ _ _ ");
 });
 
-test("displayWordSoFar should display the letters guessed so far", () => {
+test("getGuessProgress should display the letters guessed so far", () => {
   // ARRANGE
   const word = "javascript";
   const guesses = ["a", "t", "i", "b", "k"];
 
   // ACT
-  const displayedWord = displayWordSoFar(word, guesses);
+  const displayedWord = getGuessProgress(word, guesses);
 
   // ASSERT
   expect(displayedWord).toBe("_ a _ a _ _ _ i _ t ");
