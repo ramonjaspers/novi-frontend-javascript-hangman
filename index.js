@@ -1,12 +1,12 @@
 const { question } = require("readline-sync");
-const { getGuessProgress, isGameLost, isGameWon, isLetterValid, drawHangman } = require("./gamelogic");
+const { getGuessProgress, isGameLost, isGameWon, isGuessValid, drawHangman } = require("./gamelogic");
 
 function game(word, guesses) {
   console.log("Dit heb je tot nu toe geraden: \n ", JSON.stringify(guesses));
   const letter = question("Raad een letter: ").toLowerCase();
 
   // Check if the given letter is valid, if not we log a message and restart the round
-  if (!isLetterValid(guesses, letter)) {
+  if (!isGuessValid(guesses, letter)) {
     return game(word, guesses);
   }
 
@@ -30,11 +30,13 @@ function game(word, guesses) {
     ===========  
     R.I.P. je bent dood man 
 `);
+    //ends the function
     return;
   }
 
   // De ronde is nog niet voorbij dus tonen de de voortgang en roepen de game nog een keer aan voor 
-  console.log(`Dit heb je voortgang: ${voortgang}`);
+  console.log(`Dit  is je voortgang: ${voortgang}`);
+  //toond de huidige status van de hangende man
   drawHangman(word, guesses);
 
   return game(word, guesses);

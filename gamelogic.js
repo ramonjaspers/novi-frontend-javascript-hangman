@@ -27,7 +27,7 @@ function isGameLost(word, guesses) {
   return false;
 }
 
-function isLetterValid(guesses, letter) {
+function isGuessValid(guesses, letter) {
   if (letter.length > 1) {
     console.log(`Helaas! Je hebt meer dan 1 letter gegeven, probeer het opnieuw!`);
     return false;
@@ -133,7 +133,7 @@ module.exports = {
   getGuessProgress,
   isGameWon,
   isGameLost,
-  isLetterValid,
+  isGuessValid,
   getAmountOfInvalidtries,
   drawHangman,
 };
